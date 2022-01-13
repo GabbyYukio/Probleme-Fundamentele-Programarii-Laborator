@@ -11,7 +11,7 @@ namespace FundamenteleProgramariiLaborator//numele proiectului
         static void p1()
         {
             double gradeC, gradeF, gradeK;
-            Console.WriteLine("Va rugam selectati dintre optiuni: ");
+            Console.WriteLine("Va rugam alegeti dintre optiuni: ");
             Console.WriteLine("1-Schimbare grade Celsius in Farenheit: ");
             Console.WriteLine("2-Schimbare grade Celsius in Kelvin");
             Console.WriteLine("3-Schimbare grade Farenheit in Celsius");
@@ -63,6 +63,65 @@ namespace FundamenteleProgramariiLaborator//numele proiectului
                 default:
                     Console.WriteLine("Input invalid. Incercati din nou: ");
                     p1();
+                    break;
+            }
+        }
+        static void p2()
+        {
+            Console.WriteLine("Alegeti dintre optiuni: ");
+            Console.WriteLine("1-Adunare dintre doua numere: ");
+            Console.WriteLine("2-Scadere dintre doua numere: ");
+            Console.WriteLine("3-Inmultire dintre doua numere: ");
+            Console.WriteLine("4-Impartire dintre doua numere: ");
+            Console.WriteLine("5-Radical dintr-un numar: ");
+            Console.WriteLine("6-Modul dintr-un numar: ");
+            Console.Write(">>> ");
+            string input = Console.ReadLine();
+
+            switch(input)
+            {
+                case "1":
+                    int a, b;
+                    Console.WriteLine("Dati valoarea primului numar\n>>> ");
+                    a=int.Parse(Console.ReadLine());
+                    Console.WriteLine("Dati valoarea pentru al doilea numar\n>>> ");
+                    b=int.Parse(Console.ReadLine());
+                    Console.WriteLine("Rezultatul este {0}",a+b);
+                    break;
+                case "2":
+                    Console.WriteLine("Dati valoarea primului numar\n>>> ");
+                    a = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Dati valoarea pentru al doilea numar\n>>> ");
+                    b = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Rezultatul este {0}", a - b);
+                    break;
+                case "3":
+                    Console.WriteLine("Dati valoarea primului numar\n>>> ");
+                    a = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Dati valoarea pentru al doilea numar\n>>> ");
+                    b = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Rezultatul este {0}", a*b);
+                    break;
+                case "4":
+                    double x, y;
+                    Console.WriteLine("Dati valoarea primului numar\n>>> ");
+                    x = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Dati valoarea pentru al doilea numar\n>>> ");
+                    y = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Rezultatul este {0}", x/y);
+                    break;
+                case "5":
+                    Console.WriteLine("Dati valoarea numarului\n>>> ");
+                    x=double.Parse(Console.ReadLine());
+                    Console.WriteLine("Rezultatul este {0}",Math.Sqrt(x));
+                    break;
+                case "6":
+                    Console.WriteLine("Dati valoarea numarului\n>>> ");
+                    x = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Rezultatul este {0}", Math.Abs(x));
+                    break;
+                default: Console.WriteLine("Valore incorecta. Incercati din nou: ");
+                    p2();
                     break;
             }
         }
