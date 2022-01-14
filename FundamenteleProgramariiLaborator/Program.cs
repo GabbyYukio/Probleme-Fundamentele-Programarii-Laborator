@@ -164,26 +164,29 @@ namespace FundamenteleProgramariiLaborator//numele proiectului
 
         }
 
-        static bool nr_perfect(int n)
+        static bool nr_perfect(int n)//subprogram care verifica daca parametrul n este numar perfect
         {
-            int s = 1;
-            for (int i = 2; i <= n / 2; i++)
-                if (n % 1 == 0)
-                    s = s + i;
-            if (s == n)
+            int s = 1;//suma o initilializam de la 1 pentru ca 1 este divizorul oricarui numar
+            for (int i = 2; i <= n / 2; i++)//verificam pana la n/2 pentru ca acela este cel mai mare divizor al oricarui numar
+                if (n % 1 == 0)//daca divide
+                    s = s + i;//adaugam la suma
+            if (s == n)//verificam daca suma este egal cu numar
                 return true;
             return false;
         }
         static void p5()
         {
+            //input a 
             int a, b;
             Console.Write("Dati numarul cel mai mic al intervalului deschis: ");
             a=int.Parse(Console.ReadLine());
 
-
+            //input b
             Console.WriteLine("Dati numarul cel mai mare al intervalului deschis: ");
             b=int.Parse(Console.ReadLine());
 
+            Console.Write("Numerele perfecte din interval sunt: ");
+            //verificam fiecare numar incepand de la a si pana la b
             for(int i=a; i<=b; i++)
                 if(nr_perfect(i)==true)
                     Console.Write("{0} ",i);
@@ -257,16 +260,27 @@ namespace FundamenteleProgramariiLaborator//numele proiectului
 
         static double media_geometrica_divizori(int a)
         {
+            int n = 0;
             int p = 1;
             for (int i = 2; i <= a / 2; i++)
-                if (a % i == 0)  
+                if (a % i == 0)
+                {
                     p = p * i;
-            return Math.Sqrt(p);
+                    n++;
+                }
+            return Math.Pow(p,1/n);
         }
 
         static double media_harmonica_divizori(int a)
         {
-
+            int n = 1, suma_div = 0;
+            for (int i = 2; i <= a / 2; i++)
+                if (a % i == 0)
+                {
+                    suma_div = suma_div + 1 / i;
+                    n++;
+                }
+            return n / suma_div;
         }
         static void p8()
         {
@@ -274,8 +288,10 @@ namespace FundamenteleProgramariiLaborator//numele proiectului
             Console.WriteLine("Dati valorea lui a:");
             a=int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Suma aritmetica pentru divizorii lui {0} este {1}",a,media_aritmetica_divizori(a));
-            Console.WriteLine("Sume geometrica pentru divizorii lui {0} este {1}",a,media_geometrica_divizori(a));
+            //output dupa metode
+            Console.WriteLine("Media aritmetica pentru divizorii lui {0} este {1}",a,media_aritmetica_divizori(a));
+            Console.WriteLine("Media geometrica pentru divizorii lui {0} este {1}",a,media_geometrica_divizori(a));
+            Console.WriteLine("Media armonica pentru divizorii lui {0} este {1}", a,media_harmonica_divizori(a));
         }
 
         static void p9()
